@@ -1,0 +1,174 @@
+/* assets/styles/styles.css */
+
+/* Estilos base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-height: 100vh;
+    overflow-x: visible !important; /* Forzar que el contenedor no recorte el contenido */
+}
+
+/* Estilo para las cajas con fondo semitransparente y efecto vidrio esmerilado */
+.box {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding-bottom: 1.5rem;
+    overflow-x: visible !important; /* Forzar que el contenido de #hourlyForecast no se recorte */
+}
+
+/* Estilo para el pronóstico horario */
+.forecast__card {
+    width: 100px;
+    text-align: center;
+}
+
+.forecast__icono {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.forecast__hora {
+    margin-bottom: 0.25rem;
+}
+
+.forecast__temperatura {
+    margin-top: 0.25rem;
+}
+
+/* Estilo para la tabla de mareas */
+#tideResults {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+#tideResults table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Estilo para el contenedor del pronóstico horario */
+#hourlyForecast {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+/* Contenedor interno para los elementos del pronóstico */
+#hourlyForecast .forecast__wrapper {
+    display: flex;
+    gap: 1rem;
+    padding: 0 2rem; /* Añadir padding a los lados */
+    overflow-x: auto; /* Permite el desplazamiento */
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ajustar cada bloque del pronóstico */
+#hourlyForecast .forecast__item {
+    flex: 0 0 auto;
+    width: 100px;
+    text-align: center;
+}
+
+/* Media query para pantallas de 425px o menos */
+@media (max-width: 425px) {
+    /* Ajustar márgenes del contenedor */
+    .container.is-max-desktop {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Ajustar la tabla de mareas */
+    #tideResults {
+        max-height: 200px;
+        overflow-x: auto;
+    }
+
+    #tideResults table {
+        font-size: 0.8rem;
+    }
+
+    #tideResults th,
+    #tideResults td {
+        padding: 0.25rem 0.5rem;
+        white-space: nowrap;
+    }
+
+    /* Ajustar el pronóstico horario */
+    #hourlyForecast .forecast__wrapper {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    #hourlyForecast .forecast__item {
+        width: 80px;
+        font-size: 0.8rem;
+    }
+
+    #hourlyForecast .forecast__icono {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Ajustar los controles de entrada */
+    .field.is-grouped {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .field.is-grouped .control {
+        width: 100%;
+    }
+
+    .select,
+    .input,
+    .button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    /* Ajustar texto y otros elementos */
+    #fechayhora {
+        font-size: 0.9rem;
+    }
+
+    #ciudad {
+        font-size: 1rem;
+    }
+
+    #orto,
+    #ocaso {
+        font-size: 0.8rem;
+    }
+}
+
+/* Opcional: Personalizar la barra de desplazamiento (solo para navegadores WebKit) */
+#tideResults::-webkit-scrollbar {
+    width: 8px;
+}
+
+#tideResults::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#tideResults::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#tideResults::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
